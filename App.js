@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './app/screens/Login';
 import List from './app/screens/List';
 import Details from './app/screens/Details';
+import Perfil from './app/screens/Perfil';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { FIREBASE_AUTH } from './FirebaseConfig';
@@ -13,8 +14,9 @@ const InsideStack = createNativeStackNavigator();
 function InsideLayout(){
   return(
     <InsideStack.Navigator>
-      <InsideStack.Screen name='My todos' component={List} />
+      <InsideStack.Screen name='My App' component={List} />
       <InsideStack.Screen name='Details' component={Details} />
+      <InsideStack.Screen name='Perfil' component={Perfil} />
     </InsideStack.Navigator>
   )
 }

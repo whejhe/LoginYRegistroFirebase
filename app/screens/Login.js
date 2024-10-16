@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, ActivityIndicator, Button, KeyboardAvoidingView, StyleSheet, Pressable } from 'react-native';
+import { View, Text, TextInput, ActivityIndicator, Button, KeyboardAvoidingView, StyleSheet, Pressable, Image } from 'react-native';
 import { FIREBASE_AUTH } from '../../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -37,6 +37,8 @@ const Login = () => {
 
     return (
         <View style={styles.container}>
+            <Image style={styles.image} source={require('../../assets/login.png')} />
+            
             <KeyboardAvoidingView behavior='padding'>
                 <TextInput value={email} style={styles.input} placeholder='Email' autoCapitalize='none'
                     onChangeText={(text) => setEmail(text)}></TextInput>
@@ -91,6 +93,15 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         fontWeight: 'bold',
+    },
+    image:{
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
+        marginBottom: 10,
+        borderColor: '#fff',
+        borderWidth: 1,
+        borderRadius: 50,
     }
     
 });

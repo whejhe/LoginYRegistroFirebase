@@ -1,14 +1,21 @@
 import React from 'react';
-import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Image } from 'react-native';
 import { FIREBASE_AUTH } from '../../FirebaseConfig';
 
 const List = ({navigation}) => {
     return(
         <View style={styles.container}>
+            <Image style={styles.image} source={require('../../assets/luna.png')} />
             <Text style={styles.title}>List</Text>
+            
             <Pressable style={styles.button} onPress={() => navigation.navigate('Details')}>
                 <Text style={styles.text}>Ver detalles</Text>
             </Pressable>
+
+            <Pressable style={styles.button} onPress={() => navigation.navigate('Perfil')}>
+                <Text style={styles.text}>Ver Perfil</Text>
+            </Pressable>
+
             <Pressable style={styles.button} onPress={() => FIREBASE_AUTH.signOut()}>
                 <Text style={styles.text}>Logout</Text>
             </Pressable>
@@ -47,7 +54,14 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 30,
         marginBottom: 10
-
+    },
+    image:{
+        width: 100,
+        height: 100,
+        resizeMode: 'contain',
+        backgroundColor: '#323446',
+        borderRadius: 50,
+        padding: 10
     }
     
 });
