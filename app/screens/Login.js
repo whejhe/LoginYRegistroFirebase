@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, ActivityIndicator, Button, KeyboardAvoidingView, StyleSheet } from 'react-native';
+import { View, Text, TextInput, ActivityIndicator, Button, KeyboardAvoidingView, StyleSheet, Pressable } from 'react-native';
 import { FIREBASE_AUTH } from '../../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -47,8 +47,12 @@ const Login = () => {
                     <ActivityIndicator size="large" color="#0000ff" />
                 ) : (
                     <>
-                        <Button title='Login' onPress={signIn} />
-                        <Button title='Create Account' onPress={signUp} />
+                        <Pressable style={styles.button} onPress={signIn}>
+                            <Text style={styles.text}>Login</Text>
+                        </Pressable>
+                        <Pressable style={styles.button} onPress={signUp}>
+                            <Text style={styles.text}>Create Account</Text>
+                        </Pressable>
                     </>
                 )}
             </KeyboardAvoidingView>
@@ -59,18 +63,35 @@ const Login = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#8087F0',
         alignItems: 'center',
         justifyContent: 'center',
+        width: '100%',
+        height: '100%',
     },
     input: {
         marginVertical: 4,
         height: 50,
-        borderWidth: 1,
+        width: 250,
+        borderWidth: 2,
         borderRadius: 4,
         padding: 10,
         backgroundColor: '#fff',
+        borderColor: '#323446'
     },
+    button:{
+        padding: 10,
+        backgroundColor: '#323446',
+        borderRadius: 8,
+        marginVertical: 5,
+        borderWidth: 1,
+        borderColor: '#F0D262',
+    },
+    text:{
+        color: '#fff',
+        textAlign: 'center',
+        fontWeight: 'bold',
+    }
     
 });
 

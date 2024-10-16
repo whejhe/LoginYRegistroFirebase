@@ -27,6 +27,9 @@ npx expo install react-native-screens react-native-safe-area-context
 Configurar Metro:
 npx expo customize metro.config.js
 
+Configurar store:
+npm install @react-native-async-storage/async-storage
+
 Comenzar Proyecto:
 npx expo start
 
